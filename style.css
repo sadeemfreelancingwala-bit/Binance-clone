@@ -1,0 +1,405 @@
+/* CryptoX Pro Exchange - Global Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+ 
+:root {
+    --bg-main: #0b0e11;
+    --bg-darker: #050505;
+    --bg-card: rgba(30, 35, 41, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-highlight: rgba(255, 255, 255, 0.05);
+ 
+    --primary: #f0b90b; /* Binance yellow-ish accent, but let's shift to Gold-like */
+    --accent: #00ff88;  /* Success secondary */
+    --danger: #ff4d4d;
+    --text-main: #eaecef;
+    --text-muted: #848e9c;
+    --nav-bg: rgba(11, 14, 17, 0.9);
+ 
+    --gradient-primary: linear-gradient(135deg, #f0b90b 0%, #ff8c00 100%);
+    --gradient-buy: linear-gradient(135deg, #02c076 0%, #00ff88 100%);
+    --gradient-sell: linear-gradient(135deg, #cf304a 0%, #ff4d4d 100%);
+}
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+}
+ 
+/* Glassmorphism Classes */
+.glass {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+}
+ 
+.card-hover:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(240, 185, 11, 0.2);
+}
+ 
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+ 
+.neon-text {
+    text-shadow: 0 0 10px rgba(240, 185, 11, 0.4);
+}
+ 
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
+}
+ 
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+ 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+ 
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+ 
+.nav-links a:hover {
+    color: var(--primary);
+}
+ 
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+ 
+/* Buttons */
+.btn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.btn-primary {
+    background: var(--gradient-primary);
+    color: #000;
+}
+ 
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(240, 185, 11, 0.4);
+}
+ 
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+ 
+.btn-outline:hover {
+    background: var(--primary);
+    color: #000;
+}
+ 
+.btn-buy {
+    background: var(--gradient-buy);
+    color: #000;
+}
+ 
+.btn-sell {
+    background: var(--gradient-sell);
+    color: #fff;
+}
+ 
+/* Landing Page Specifics */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1b263b 0%, #0b0e11 100%);
+    padding-top: 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+ 
+.moving-bg {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(240, 185, 11, 0.05) 0%, transparent 50%, rgba(0, 255, 136, 0.05) 100%);
+    animation: rotateBg 20s linear infinite;
+    z-index: 1;
+}
+ 
+@keyframes rotateBg {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+ 
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+ 
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+ 
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+ 
+/* Trading Ticker */
+.ticker-container {
+    padding: 15px 0;
+    margin-top: 30px;
+}
+ 
+.ticker-wrap {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+ 
+.ticker-card {
+    padding: 15px 25px;
+    min-width: 140px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+ 
+.ticker-card:hover {
+    transform: translateY(-5px);
+}
+ 
+.ticker-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+ 
+.price-up { color: var(--accent); }
+.price-down { color: var(--danger); }
+ 
+/* Dashboard Layout */
+.dashboard-wrapper {
+    display: grid;
+    grid-template-columns: 260px 1fr 340px;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+}
+ 
+.sidebar {
+    background: var(--bg-darker);
+    border-right: 1px solid var(--glass-border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+ 
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: all 0.3s;
+}
+ 
+.sidebar-link i { font-size: 1.2rem; }
+.sidebar-link:hover, .sidebar-link.active {
+    background: rgba(240, 185, 11, 0.1);
+    color: var(--primary);
+}
+ 
+.main-content {
+    padding: 20px;
+    overflow-y: auto;
+    background: #0d1117;
+}
+ 
+.trade-panel {
+    background: var(--bg-darker);
+    border-left: 1px solid var(--glass-border);
+    padding: 20px;
+    overflow-y: auto;
+}
+ 
+/* Forms */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+ 
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+}
+ 
+.form-group {
+    margin-bottom: 20px;
+}
+ 
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+ 
+.form-control {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #fff;
+    outline: none;
+    transition: border 0.3s;
+}
+ 
+.form-control:focus {
+    border-color: var(--primary);
+}
+ 
+/* Trading Table */
+.order-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+ 
+.order-history-table th, .order-history-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+ 
+.order-history-table th {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+ 
+/* Charts */
+#tradingChart {
+    width: 100% !important;
+    height: 450px !important;
+}
+ 
+/* Responsive */
+@media (max-width: 1200px) {
+    .dashboard-wrapper {
+        grid-template-columns: 80px 1fr 300px;
+    }
+    .sidebar span { display: none; }
+}
+ 
+@media (max-width: 992px) {
+    .dashboard-wrapper {
+        display: block;
+        height: auto;
+    }
+    .sidebar { display: none; }
+    .trade-panel { border-left: none; border-top: 1px solid var(--glass-border); }
+}
+ 
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+ 
+.alert-danger { background: rgba(255, 77, 77, 0.1); border: 1px solid var(--danger); color: var(--danger); }
+.alert-success { background: rgba(0, 255, 136, 0.1); border: 1px solid var(--accent); color: var(--accent); }
+ 
+/* Animation Utils */
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+ 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+ 
+.shimmer {
+    position: relative;
+    overflow: hidden;
+}
+ 
+.shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    animation: shimmer 3s infinite;
+}
+ 
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
